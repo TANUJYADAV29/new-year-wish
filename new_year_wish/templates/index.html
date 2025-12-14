@@ -11,46 +11,32 @@
 
 <canvas id="canvas"></canvas>
 
-<!-- Envelope Container -->
-<div class="envelope-container">
+<!-- CARD -->
+<div class="message show" id="msg">
+  <div class="card-overlay"></div>
 
-  <div class="envelope">
-    <div class="env-top">💌</div>
-    <div class="env-bottom"></div>
-  </div>
-
-  <!-- REAL BUTTON -->
-  <button class="open-btn" onclick="openEnvelope()">Open</button>
-</div>
-
-<!-- Card -->
-<div class="message" id="msg">
   <div class="card-text">
     <h1>Happy New Year ✨</h1>
+
     <p>
-      I hope this year brings you peace, growth, and moments that truly make you smile.<br><br>
-      Wishing you success in everything you work hard for and happiness in everything you choose.<br><br>
-      Have an amazing year ahead.<br><br>
-      Lucky to have you all in my life! ❤️
+      I hope this year brings you peace, growth, and moments that truly make you smile.
     </p>
+
+    <p>
+      Wishing you success in everything you work hard for and happiness in everything you choose.
+    </p>
+
+    <p>Have an amazing year ahead.</p>
+
+    <p> Lucky to have you all ❤️</p>
+
+    <p class="signature">— from Tanuj 🤗</p>
   </div>
 </div>
 
-<script>
-let started = false;
-
-function openEnvelope() {
-  document.querySelector(".envelope-container").style.display = "none";
-  document.getElementById("msg").classList.add("show");
-
-  if (!started) {
-    started = true;
-    startFireworks();
-  }
-}
-</script>
+<!-- REPLAY BUTTON -->
+<button class="replay-btn" onclick="replayFireworks()">Replay 🎆</button>
 
 <script src="/static/fireworks.js"></script>
 </body>
 </html>
-
