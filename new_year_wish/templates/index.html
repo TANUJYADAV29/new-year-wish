@@ -1,51 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Happy New Year ✨</title>
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
-<!-- Fireworks -->
 <canvas id="canvas"></canvas>
 
-<!-- Envelope -->
-<div class="envelope" onclick="openEnvelope()" id="env">
-  <div class="top">ENVELOPE</div>
-  <div class="bottom"></div>
+<!-- Envelope Container -->
+<div class="envelope-container">
+
+  <div class="envelope">
+    <div class="env-top">💌</div>
+    <div class="env-bottom"></div>
+  </div>
+
+  <!-- REAL BUTTON -->
+  <button class="open-btn" onclick="openEnvelope()">Open</button>
 </div>
 
-<!-- Message -->
+<!-- Card -->
 <div class="message" id="msg">
-  <h1>Happy New Year ✨</h1>
-  <p>
-    I hope this year brings you peace, growth, and moments that truly make you smile.<br><br>
-    Wishing you success in everything you work hard for and happiness in everything you choose.<br><br>
-    Have an amazing year ahead.
-  </p>
+  <div class="card-text">
+    <h1>Happy New Year ✨</h1>
+    <p>
+      I hope this year brings you peace, growth, and moments that truly make you smile.<br><br>
+      Wishing you success in everything you work hard for and happiness in everything you choose.<br><br>
+      Have an amazing year ahead.<br><br>
+      Lucky to have you all in my life! ❤️
+    </p>
+  </div>
 </div>
 
 <script>
-let fireworksStarted = false;
+let started = false;
 
 function openEnvelope() {
-  document.getElementById("env").style.display = "none";
-  document.getElementById("msg").style.display = "block";
+  document.querySelector(".envelope-container").style.display = "none";
+  document.getElementById("msg").classList.add("show");
 
-  if (!fireworksStarted) {
-    fireworksStarted = true;
+  if (!started) {
+    started = true;
     startFireworks();
   }
 }
 </script>
 
-<script src="{{ url_for('static', filename='fireworks.js') }}"></script>
-
+<script src="/static/fireworks.js"></script>
 </body>
 </html>
+
