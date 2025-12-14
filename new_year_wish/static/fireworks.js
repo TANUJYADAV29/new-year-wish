@@ -5,25 +5,33 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particles = [];
+let interval;
+
 const colors = ["#ffbe0b", "#ff006e", "#8338ec", "#3a86ff"];
 
-function startFireworks() {
-  setInterval(() => {
+function launchFireworks() {
+  interval = setInterval(() => {
     const x = Math.random() * canvas.width;
     const y = Math.random() * canvas.height * 0.5;
     const color = colors[Math.floor(Math.random() * colors.length)];
 
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 90; i++) {
       particles.push({
         x,
         y,
-        vx: (Math.random() - 0.5) * 6,
-        vy: (Math.random() - 0.5) * 6,
-        life: 80,
+        vx: (Math.random() - 0.5) * 7,
+        vy: (Math.random() - 0.5) * 7,
+        life: 90,
         color
       });
     }
   }, 900);
+}
+
+function replayFireworks() {
+  clearInterval(interval);
+  particles = [];
+  launchFireworks();
 }
 
 function animate() {
@@ -41,4 +49,5 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
+launchFireworks();
 animate();
